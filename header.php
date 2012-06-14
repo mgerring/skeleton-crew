@@ -47,9 +47,9 @@
   <link rel="stylesheet/less" href="css/style.less">
   <!-- end CSS-->
     <?php 
-        wp_enqueue_script('modernizr', get_bloginfo('template_url').'/js/libs/modernizr-2.0.6.min.js');
+        wp_enqueue_script('modernizr', bloginfo('template_url').'/js/libs/modernizr-2.0.6.min.js');
         if (defined('WP_DEBUG') && WP_DEBUG)
-            wp_enqueue_script('less-css', get_bloginfo('template_url').'/js/less-1.1.5.min.js')
+            wp_enqueue_script('less-css', bloginfo('template_url').'/js/less-1.1.5.min.js')
     ?>
   <?php wp_head(); ?>
 </head>
