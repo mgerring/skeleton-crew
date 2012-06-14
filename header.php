@@ -59,7 +59,5 @@
   <div id="container">
     <header>
         <h1><?php bloginfo('name'); ?></h1>
-        <nav>
-            <?php wp_nav_menu(array('theme_location'=>'top','container'=>false, 'menu_class' => 'menu-container', 'menu_id' => 'nav-top')); ?>
-        </nav>
+            <?php wp_nav_menu(array('theme_location'=>'header','container'=>'nav', 'menu_class' => 'menu-container', 'menu_id' => 'nav-top', 'fallback_cb'=>false)); ?>
     </header>

@@ -1,5 +1,5 @@
     <footer>
-
+            <?php wp_nav_menu(array('theme_location'=>'footer','container'=>'nav', 'menu_class' => 'menu-container', 'menu_id' => 'nav-top', 'fallback_cb'=>false)); ?>
     </footer>
   </div> <!--! end of #container -->
 
