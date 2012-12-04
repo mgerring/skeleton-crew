@@ -33,24 +33,29 @@
   		echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
 
   	?></title>
+  <link rel="icon" type="image/ico" href="<?php bloginfo('template_url'); ?>/img/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php bloginfo('template_url'); ?>/img/favicon/favicon.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('template_url'); ?>/img/favicon/icon144x144.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('template_url'); ?>/img/favicon/icon114x114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('template_url'); ?>/img/favicon/icon72x72.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="<?php bloginfo('template_url'); ?>/img/favicon/icon57x57.png" />
+
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-
-  <!-- CSS: implied media=all -->
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet/less" href="css/style.less">
+  <?php if (defined('WP_DEBUG') && WP_DEBUG): ?>
+  <link rel="stylesheet/less" href="<?php bloginfo('template_url'); ?>/css/style.less">
+  <?php else: ?>
+  <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/style.css">
+  <?php endif; ?>
   <!-- end CSS-->
-    <?php 
-        wp_enqueue_script('modernizr', bloginfo('template_url').'/js/libs/modernizr-2.0.6.min.js');
-        if (defined('WP_DEBUG') && WP_DEBUG)
-            wp_enqueue_script('less-css', bloginfo('template_url').'/js/less-1.1.5.min.js')
-    ?>
+  <?php 
+      wp_enqueue_script('modernizr', get_bloginfo('template_url').'/js/libs/modernizr-2.0.6.min.js');
+      if (defined('WP_DEBUG') && WP_DEBUG)
+          wp_enqueue_script('less-css', get_bloginfo('template_url').'/js/vendor/less-1.3.0.min.js')
+  ?>
   <?php wp_head(); ?>
 </head>
 
@@ -59,5 +64,5 @@
   <div id="container">
     <header>
         <h1><?php bloginfo('name'); ?></h1>
-            <?php wp_nav_menu(array('theme_location'=>'header','container'=>'nav', 'menu_class' => 'menu-container', 'menu_id' => 'nav-top', 'fallback_cb'=>false)); ?>
+        <?php wp_nav_menu(array('theme_location'=>'header','container'=>'nav', 'menu_class' => 'menu-container', 'menu_id' => 'nav-top', 'fallback_cb'=>false)); ?>
     </header>

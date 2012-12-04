@@ -4,7 +4,7 @@
     <article <?php post_class(); ?>>
         <h2><?php the_title(); ?></h2>
         <div class="meta">
-            By <span class="author"><?php the_author_link(); ?></span> &middot; posted <span class="date"><?php the_date("f J, Y"); ?></span>
+            By <span class="author"><?php the_author_link(); ?></span> &middot; posted <span class="date"><?php the_date("F j, Y"); ?></span>
         </div>
         <?php the_content(); ?>
     </article>
